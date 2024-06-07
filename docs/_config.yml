@@ -1,0 +1,32 @@
+title: 人型ロボット共通インターフェイス構想
+description: >-
+ 人型ロボット共通インターフェース構想とは、
+ 人型ロボットの構築/設計段階での共通認識となるインターフェースを定義することで、
+ 人型ロボットの開発を効率化することを目的としています。
+github_username:  HumanoidCommonNorms
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Theme-specific settings
+
+# If you want to link only specific pages in your header, use this and add the path to the pages
+# in order as they should show up.
+header_pages:
+  - about.md
+
+# Set to `true` to show excerpts on the homepage.
+#show_excerpts: false
+
+# Minima specific settings, which are only available from Minima 3.0 onward.
+minima:
+  # Minima skin selection.
+  # Available skins are: classic, dark, auto, solarized-light, solarized-dark, and solarized.
+  skin: dark
+
+  # Minima date format.
+  # The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
+  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
+  date_format: "%b-%d-%Y"
+
