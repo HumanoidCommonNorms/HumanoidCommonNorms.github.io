@@ -12,29 +12,27 @@
 			"**/CVS": true,
 			"**/.DS_Store": true,
 			"**/Thumbs.db": true,
-			"**/**.html": true,
-			"HumaroidCommonInterface/contents/**.html": true,
-			"HumaroidCommonInterface/contents/**.pdf": true
+			"**/**.html": false,
+			"docs/**.html": true,
+			"docs/**.pdf": true
 		},
 		"cSpell.words": [
+			"autocrlf",
+			"enduml",
+			"endwbs",
 			"Humaroid",
 			"samplerate",
 			"startuml",
 			"startwbs",
-			"enduml",
-			"endwbs"
+			"workdir"
 		],
+		"forbeslindesay-taskrunner.source": "Workspace",
 		"markdown.extension.print.onFileSave": false,
-		"markdown-preview-enhanced.imageFolderPath": "${workspaceFolder}/assets"
+		"markdown.extension.print.absoluteImgPath": false,
+		"markdown-preview-enhanced.imageFolderPath": "${workspaceFolder}/docs/assets"
 	},
-	"extensions": {
-		"recommendations": [
-			"streetsidesoftware.code-spell-checker",
-			"saikou9901.evilinspector",
-			"mhutchie.git-graph",
-			"shardulm94.trailing-spaces",
-			"yzhang.markdown-all-in-one",
-			"shd101wyy.markdown-preview-enhanced"
-		]
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
 	}
 }
