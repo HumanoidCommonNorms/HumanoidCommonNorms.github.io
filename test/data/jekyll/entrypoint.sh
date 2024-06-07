@@ -13,9 +13,10 @@ if [ "$PRINT_SCRIPT" = "false" ]; then
                 --config /root/node/_config.yml,/root/src/_config.yml
 
         echo "======================================================"
+        echo "Build time: $(TZ=UTC date -u +%Y-%m-%dT%H:%M:%SZ) UTC"
         if test -e "/root/_site/index.html";then
             #echo "Internal IP:$SERVER_IP"
-            echo "Open this link in your browser: http://localhost:${SERVER_PORT}"
+            echo "[INFO] Open this link in your browser: http://localhost:${SERVER_PORT}"
             echo "======================================================"
             bundle exec jekyll serve \
                 --no-watch \
@@ -27,7 +28,7 @@ if [ "$PRINT_SCRIPT" = "false" ]; then
             echo "[ERROR] Failed to build site"
             echo "======================================================"
         fi
-    popd
+    popd > /dev/null
 fi
 
 export PRINT_SCRIPT=true
