@@ -1,3 +1,9 @@
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
 title: 人型ロボット共通インターフェイス構想
 description: >-
  人型ロボット共通インターフェース構想とは、
@@ -5,28 +11,35 @@ description: >-
  人型ロボットの開発を効率化することを目的としています。
 github_username:  HumanoidCommonNorms
 
+# Build settings
+# https://pages.github.com/themes/
+theme: minima
+
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
+#  - jekyll-seo-tag
+#  - jekyll-sitemap
 
 # Theme-specific settings
+lang: ja
 
-# If you want to link only specific pages in your header, use this and add the path to the pages
-# in order as they should show up.
-header_pages:
-  - about.md
+#header_pages:
+#  - about.md
 
 # Set to `true` to show excerpts on the homepage.
-#show_excerpts: false
+show_excerpts: true
 
-# Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
   # Minima skin selection.
   # Available skins are: classic, dark, auto, solarized-light, solarized-dark, and solarized.
-  skin: dark
+  skin: classic
 
-  # Minima date format.
-  # The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
-  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-  date_format: "%b-%d-%Y"
+  # Minima date format. The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
+  # date_format: "%b-%d-%Y"
 
+#defaults:
+#  -
+#    scope:
+#      path: "assets/**"
+#    values:
+#      sitemap: true

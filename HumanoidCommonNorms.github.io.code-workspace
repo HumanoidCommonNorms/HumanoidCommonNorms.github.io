@@ -26,6 +26,7 @@
 			"startwbs",
 			"workdir"
 		],
+		"editor.formatOnSave": false,
 		"forbeslindesay-taskrunner.source": "Workspace",
 		"markdown.extension.print.onFileSave": false,
 		"markdown.extension.print.absoluteImgPath": false,
