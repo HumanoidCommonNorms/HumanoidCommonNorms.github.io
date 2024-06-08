@@ -1,6 +1,11 @@
 ---
 layout: page
 title: VMDファイルの構造
+description: VMDファイルの構造について解説します。
+categories:
+   - 3rdParty
+tags:
+    - standards
 ---
 
 * フレームNoなど整数型は符号なし整数型として考えて記載してます。

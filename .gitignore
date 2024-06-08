@@ -78,6 +78,9 @@ iOSInjectionProject/
 ## node
 **/node_modules
 
+## Image
+**/.$*
+
 ## My project
 **/~$*
 **/__*

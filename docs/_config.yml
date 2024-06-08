@@ -17,14 +17,19 @@ theme: minima
 
 plugins:
   - jekyll-feed
-#  - jekyll-seo-tag
+  - jekyll-seo-tag
 #  - jekyll-sitemap
 
 # Theme-specific settings
 lang: ja
 
-#header_pages:
-#  - about.md
+header_pages:
+  - article/about.md
+  - specification/index.md
+  - academics/index.md
+  - article/reference.md
+  - article/acknowledgements.md
+  - sitemap.md
 
 # Set to `true` to show excerpts on the homepage.
 show_excerpts: true
