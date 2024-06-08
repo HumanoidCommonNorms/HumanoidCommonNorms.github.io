@@ -28,8 +28,6 @@ parser.add_argument("--image_version", type=str, default="latest",
                     help="Docker image version")
 parser.add_argument("--container_name", type=str, default="server_jekyll",
                     help="Docker container name")
-parser.add_argument("--image_args_ruby_version", type=str, default="",
-                    help="Ruby version")
 # options : Jekyll
 parser.add_argument("--port", type=int, default=8000, help="publish port")
 parser.add_argument("--src_dir", type=str, default="docs",
@@ -99,8 +97,7 @@ class SetupGithubPages:
             # build docker image
             ret = self.build_docker_image(self._root_dir, self._gemfile_dir,
                                           self._dockerfile_path,
-                                          ap.image_name, ap.image_version,
-                                          ap.image_args_ruby_version)
+                                          ap.image_name, ap.image_version)
 
         if ret == 0:
             # create docker container
@@ -199,7 +196,7 @@ class SetupGithubPages:
         return ret
 
     def build_docker_image(self, root_dir: str, gemfile_dir: str, dockerfile_path: str,
-                           image_name: str, image_version: str, ruby_version: str):
+                           image_name: str, image_version):
         """Build Docker Image."""
         print("\n[## Create a Docker image]")
         ret, result = self.get_process(
@@ -209,7 +206,7 @@ class SetupGithubPages:
                 os.chdir(gemfile_dir)
                 ret = os.system('docker build'
                                 # ' --no-cache'
-                                + ' --build-arg RUBY_VERSION=' + ruby_version
+                                # + ' --build-arg RUBY_VERSION=' + ruby_version
                                 + ' -t ' + image_name + ':' + image_version
                                 + ' -f' + dockerfile_path
                                 + " " + gemfile_dir)
