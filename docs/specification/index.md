@@ -20,7 +20,7 @@ tags:
 
 
 * 操縦関連
-  * [コントローラー](maneuver/output_controller)
+  * [コントローラー](maneuver)
 
 * ソフトウェア関連
   * [通信プロトコル](software/communication_protocol)
@@ -32,8 +32,6 @@ tags:
     * [フルボディ-IK : 顔以外の人間と同等の可動域をもつIK](/418.html)
     * [Humaroid-Face-IK : 顔の表情を再現するためのIK](/418.html)
     * [Humaroid-IK : 人間の動作を再現できる程度にフルボデイ-IKの一部を固定したIK](	/418.html)
-
-* [非機能要件](non_functional_requirements/non_functional_requirements)
 
 
 * 3rd Party

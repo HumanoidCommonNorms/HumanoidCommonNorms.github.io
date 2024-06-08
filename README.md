@@ -1,5 +1,10 @@
 # 人型ロボット共通インターフェース構想について
 
+GitHub Pages: [https://humanoidcommonnorms.github.io/](https://github.com/HumanoidCommonNorms/)
+
+<img src="https://github.com/HumanoidCommonNorms/assets/svg/QR_HumanoidCommonNorms.svg" alt="url">
+
+
 人型ロボット共通インターフェース構想とは、人型ロボットの構築/設計段階での共通認識となるインターフェースを定義することで、人型ロボットの開発を効率化することを目的としています。
 
 ## ライセンス

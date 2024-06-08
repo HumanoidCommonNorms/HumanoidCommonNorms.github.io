@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 学術的知識
+title: 学術的資料
 description: 学術的に関する知識をまとめました。
 tags:
     - academics

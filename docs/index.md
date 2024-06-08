@@ -14,21 +14,4 @@ layout: page
 <br>
 <br>
 
-{%- assign page_paths = site.header_pages -%}
-{%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-
-{%- if titles_size > 0 -%}
-
-{%- for path in page_paths -%}
-{%- assign my_page = site.pages | where: "path", path | first -%}
-
-{%- if my_page.title -%}
-
-<h3 class="post-title">
-<a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-</h3>
-
-{%- endif -%}
-{%- endfor -%}
-
-{%- endif -%}
+{%- include list_header_pages.html -%}

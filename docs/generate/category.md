@@ -4,6 +4,7 @@ title: カテゴリ一覧
 description: カテゴリー別の記事一覧です。
 tags:
     - entirety
+permalink: /category.html
 ---
 
 <div id="archives">

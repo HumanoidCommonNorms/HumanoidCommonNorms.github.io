@@ -4,6 +4,7 @@ title: サイトマップ
 description: サイト全体の一覧を表示します。
 tags:
     - entirety
+permalink: /sitemap.html
 ---
 
 <div class="wrapper">
