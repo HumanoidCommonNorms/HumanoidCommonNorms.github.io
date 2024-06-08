@@ -14,4 +14,4 @@ layout: page
 <br>
 <br>
 
-{%- include list_header_pages.html -%}
+{% include list_header_pages.html %}
