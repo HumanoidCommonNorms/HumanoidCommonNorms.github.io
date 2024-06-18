@@ -1,11 +1,10 @@
-ARG RUBY_VERSION=
 ARG EXPOSE_PORT=8000
 
 ##=============================================================
 # https://hub.docker.com/_/node/tags
 #FROM node:latest
 FROM node:lts-bullseye-slim
-#FROM ruby:$RUBY_VERSIONslim
+#FROM ruby:2.7.4-slim
 LABEL maintainer="Akari<masiro.to.akari@gmail.com>"
 SHELL ["/bin/bash", "-c"]
 
@@ -15,16 +14,13 @@ RUN apt install -y build-essential locales zlib1g-dev
 RUN apt install -y procps iputils-ping net-tools dnsutils iproute2 vim
 
 ##=============================================================
-#RUN apt install -y nodejs
-RUN apt install -y ruby-full
+RUN apt install -y ruby-full nodejs
+
 ENV GEM_HOME /root/gems
 ENV PATH /root/gems/bin:$PATH
-# Gem Tools
-RUN gem install jekyll bundler webrick faraday-retry
-# Gem Themes
-RUN gem install minima
-# RUN gem install architect hacker merlot midnight minimal slate
-# RUN gem install cayman dinky leap_day modernist tactile time_machine
+
+# Gem install
+RUN gem install jekyll bundler
 
 ##=============================================================
 RUN sed -i -e "s/#alias l/alias l/g" /root/.bashrc

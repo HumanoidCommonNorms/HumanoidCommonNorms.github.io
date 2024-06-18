@@ -18,6 +18,7 @@
 		},
 		"cSpell.words": [
 			"autocrlf",
+			"endfor",
 			"enduml",
 			"endwbs",
 			"Humaroid",
@@ -26,10 +27,11 @@
 			"startwbs",
 			"workdir"
 		],
+		"editor.formatOnSave": false,
 		"forbeslindesay-taskrunner.source": "Workspace",
 		"markdown.extension.print.onFileSave": false,
 		"markdown.extension.print.absoluteImgPath": false,
-		"markdown-preview-enhanced.imageFolderPath": "${workspaceFolder}/docs/assets"
+		"markdown-preview-enhanced.imageFolderPath": "${workspaceFolder}/docs"
 	},
 	"launch": {
 		"version": "0.2.0",

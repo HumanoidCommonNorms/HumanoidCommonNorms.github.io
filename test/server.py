@@ -28,8 +28,6 @@ parser.add_argument("--image_version", type=str, default="latest",
                     help="Docker image version")
 parser.add_argument("--container_name", type=str, default="server_jekyll",
                     help="Docker container name")
-parser.add_argument("--image_args_ruby_version", type=str, default="",
-                    help="Ruby version")
 # options : Jekyll
 parser.add_argument("--port", type=int, default=8000, help="publish port")
 parser.add_argument("--src_dir", type=str, default="docs",
@@ -45,8 +43,6 @@ parser.add_argument("--dockerfile_path", type=str, default="test/data/Dockerfile
                     help="Dockerfile path")
 parser.add_argument("--server_env_dir", type=str, default="test/data/node",
                     help="Server setting directory")
-parser.add_argument("--entrypoint_path", type=str, default="test/data/jekyll/entrypoint.sh",
-                    help="Entrypoint path")
 parser.add_argument("--gemfile_dir", type=str, default="test/data/jekyll",
                     help="Gemfile directory")
 # options : Control tools
@@ -54,7 +50,7 @@ parser.add_argument("--setup", action='store_true',
                     help="Restart the container")
 parser.add_argument("--remake_container_only", action='store_true',
                     help="Remake from container")
-parser.add_argument("--wait_logs", type=int, default=3,
+parser.add_argument("--wait_logs", type=int, default=6,
                     help="Wait before displaying docker logs")
 
 
@@ -82,8 +78,6 @@ class SetupGithubPages:
             os.path.join(ap.root_dir, ap.gemfile_dir))
         self._server_env_dir = os.path.abspath(
             os.path.join(ap.root_dir, ap.server_env_dir))
-        self._entrypoint_path = os.path.abspath(
-            os.path.join(ap.root_dir, ap.entrypoint_path))
         self._remake_container_only = ap.remake_container_only
         self._setup = ap.setup
         if self._remake_container_only is True:
@@ -103,8 +97,7 @@ class SetupGithubPages:
             # build docker image
             ret = self.build_docker_image(self._root_dir, self._gemfile_dir,
                                           self._dockerfile_path,
-                                          ap.image_name, ap.image_version,
-                                          ap.image_args_ruby_version)
+                                          ap.image_name, ap.image_version)
 
         if ret == 0:
             # create docker container
@@ -112,8 +105,7 @@ class SetupGithubPages:
                                                ap.container_name,
                                                ap.port, self._src,
                                                self._output_dir,
-                                               self._server_env_dir,
-                                               self._entrypoint_path)
+                                               self._server_env_dir)
 
         # =========================================================
         if ret == 0:
@@ -204,7 +196,7 @@ class SetupGithubPages:
         return ret
 
     def build_docker_image(self, root_dir: str, gemfile_dir: str, dockerfile_path: str,
-                           image_name: str, image_version: str, ruby_version: str):
+                           image_name: str, image_version):
         """Build Docker Image."""
         print("\n[## Create a Docker image]")
         ret, result = self.get_process(
@@ -214,7 +206,7 @@ class SetupGithubPages:
                 os.chdir(gemfile_dir)
                 ret = os.system('docker build'
                                 # ' --no-cache'
-                                + ' --build-arg RUBY_VERSION=' + ruby_version
+                                # + ' --build-arg RUBY_VERSION=' + ruby_version
                                 + ' -t ' + image_name + ':' + image_version
                                 + ' -f' + dockerfile_path
                                 + " " + gemfile_dir)
@@ -231,8 +223,7 @@ class SetupGithubPages:
 
     def create_docker_container(self, image_name: str, image_version: str,
                                 container_name: str, open_port: int,
-                                src: str, output_dir: str, server_env_dir: str,
-                                entrypoint_path: str):
+                                src: str, output_dir: str, server_env_dir: str):
         """Create Docker Container."""
         ret, result = self.get_process(['docker', 'ps', '-a', '--format', '"{{.Names}}"',
                                         '--filter', 'name=' + container_name])
@@ -252,7 +243,6 @@ class SetupGithubPages:
                  '--hostname', container_name,
                  '--publish', str(open_port) + ":8000",
                  '-v', server_env_dir + ":/root/node",
-                 '-v', entrypoint_path + ':/root/entrypoint.sh',
                  '-v', src + ":/root/src",
                  '-v', output_dir + ":/root/_site",
                  '--workdir', "/root",
