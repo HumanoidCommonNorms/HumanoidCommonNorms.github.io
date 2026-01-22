@@ -1,0 +1,50 @@
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: 人型ロボット共通インターフェイス構想
+description: >-
+ 人型ロボット共通インターフェース構想とは、
+ 人型ロボットの構築/設計段階での共通認識となるインターフェースを定義することで、
+ 人型ロボットの開発を効率化することを目的としています。
+github_username:  HumanoidCommonNorms
+
+# Build settings
+# https://pages.github.com/themes/
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+#  - jekyll-sitemap
+
+# Theme-specific settings
+lang: ja
+
+header_pages:
+  - article/about.md
+  - specification/index.md
+  - academics/index.md
+  - article/reference.md
+  - article/acknowledgements.md
+  - sitemap.md
+
+# Set to `true` to show excerpts on the homepage.
+show_excerpts: true
+
+minima:
+  # Minima skin selection.
+  # Available skins are: classic, dark, auto, solarized-light, solarized-dark, and solarized.
+  skin: classic
+
+  # Minima date format. The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
+  # date_format: "%b-%d-%Y"
+
+#defaults:
+#  -
+#    scope:
+#      path: "assets/**"
+#    values:
+#      sitemap: true
